@@ -92,6 +92,9 @@ jenkins:
     - list:
         name: "manage"
         includeRegex: "(^backup$|^restore$|^update-config$)"
+    - list:
+        name: "my-job"
+        includeRegex: "(^test-.*$)"
   quietPeriod: 5
   scmCheckoutRetryCount: 0
   updateCenter:
