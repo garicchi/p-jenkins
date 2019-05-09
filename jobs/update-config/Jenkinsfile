@@ -1,6 +1,9 @@
 pipeline {
     agent any
-    
+    parameters {
+        string(name: "SCRIPT_BRANCH", defaultValue: "*/master", description: "configのbranch名")
+    }
+
     options {
         disableConcurrentBuilds()
         ansiColor('xterm')
