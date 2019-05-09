@@ -52,7 +52,7 @@ input admin name and password that specify in `.env` and login jenkins
 
 after login, you can see 1 job that name is `update-config`
 
-if you run `update-config` job then you can sync job that same `jobs/` folder!
+if you run `update-config` job then you can sync job that are same `jobs/` folder!
 
 # :construction_worker: OPERATION
 
