@@ -1,0 +1,11 @@
+configuration-as-code:1.14
+configuration-as-code-support:1.14
+simple-theme-plugin:0.5.1
+workflow-aggregator:2.6
+rebuild:1.29
+ansicolor:0.5.2
+credentials:2.1.18
+ssh:2.6.1
+ssh-agent:1.17
+git:3.9.3
+role-strategy:2.7.0

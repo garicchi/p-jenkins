@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+    parameters {
+        booleanParam(name: "CHECKOUT_ONLY", defaultValue: true, description: "")
+    }
+    
+    options {
+        disableConcurrentBuilds()
+        ansiColor('xterm')
+    }
+
+    stages {
+        // パラメータ反映のための空振り用
+        stage('Fetch Params') {
+            when {
+                expression {
+                    return params.CHECKOUT_ONLY
+                }
+            }
+            steps {
+                script {
+                    currentBuild.description = "for fetching parameters"
+                }
+                sh 'exit 1'
+            }
+        }
+
+        stage("Hello") {
+            steps {
+                sh 'echo Hello jenkins!'
+            }
+        }
+    }
+    
+    post {
+        always {
+            script {
+                // 後から理解しやすいようにビルドの詳細を書き換えましょう
+                currentBuild.description = "CHECKOUT_ONLY=$CHECKOUT_ONLY"
+            }
+        }
+    }
+
+}

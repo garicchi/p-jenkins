@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+    
+    options {
+        disableConcurrentBuilds()
+        ansiColor('xterm')
+    }
+
+    stages {
+        stage("Update jobs") {
+            steps {
+                sh './jenkins/scripts/update-job.sh'
+            }
+        }
+        stage("Update Plugins") {
+            steps {
+                sh './jenkins/scripts/update-plugin.sh'
+            }
+        }
+        stage("Update jenkins.yaml") {
+            steps {
+                sh './jenkins/scripts/update-config.sh'
+            }
+        }
+
+    }
+    
+}

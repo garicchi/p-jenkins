@@ -1,0 +1,8 @@
+workspace
+plugins
+war
+builds
+lastStable
+lastSuccessful
+nextBuildNumber
+logs

@@ -1,0 +1,126 @@
+jenkins:
+  systemMessage: "This is my jenkins"
+  agentProtocols:
+  - "JNLP4-connect"
+  - "Ping"
+  authorizationStrategy:
+    roleBased:
+      roles:
+        global:
+          - name: ${USER_NAME_ADMIN}
+            description: "Jenkins administrators"
+            permissions:
+              - "Overall/Administer"
+              - "Overall/Read"
+              - "Job/Build"
+              - "Job/Cancel"
+              - "Job/Configure"
+              - "Job/Create"
+              - "Job/Delete"
+              - "Job/Discover"
+              - "Job/Move"
+              - "Job/Read"
+              - "Job/Workspace"
+              - "View/Configure"
+              - "View/Create"
+              - "View/Delete"
+              - "View/Read"
+            assignments:
+              - ${USER_NAME_ADMIN}
+          - name: "operator"
+            description: "Operator User"
+            permissions:
+              - "Overall/Read"
+              - "Job/Read"
+              - "Job/Build"
+              - "Job/Cancel"
+            assignments:
+              - "operator"
+          - name: "planner"
+            description: "Planner User"
+            permissions:
+              - "Overall/Read"
+              - "Job/Read"
+              - "Job/Build"
+              - "Job/Cancel"
+            assignments:
+              - "planner"
+        items:
+          - name: "operator"
+            description: "Jobs in Folder A, but not the folder itself"
+            pattern: "deploy-.*"
+            permissions:
+              - "Job/Build"
+              - "Job/Cancel"
+              - "Job/Configure"
+              - "Job/Create"
+              - "Job/Delete"
+              - "Job/Discover"
+              - "Job/Move"
+              - "Job/Read"
+              - "Job/Workspace"
+            assignments:
+              - "operator"
+          - name: "planner"
+            description: "Jobs in Folder A, but not the folder itself"
+            pattern: "deploy-.*"
+            permissions:
+              - "Job/Build"
+              - "Job/Cancel"
+              - "Job/Configure"
+              - "Job/Create"
+              - "Job/Delete"
+              - "Job/Discover"
+              - "Job/Move"
+              - "Job/Read"
+              - "Job/Workspace"
+            assignments:
+              - "planner"
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false
+  disableRememberMe: false
+  labelString: "master"
+  mode: NORMAL
+  numExecutors: 1
+  primaryView:
+    all:
+      name: "all"
+  views:
+    - all:
+        name: "all"
+    - list:
+        name: "manage"
+        includeRegex: "(^backup$|^restore$|^update-config$)"
+  quietPeriod: 5
+  scmCheckoutRetryCount: 0
+  updateCenter:
+    sites:
+    - id: "default"
+      url: "https://updates.jenkins.io/update-center.json"
+  securityRealm:
+    local:
+      allowsSignup: false
+      enableCaptcha: false
+      users:
+        - id: "admin"
+          password: ${USER_PASS_ADMIN}
+        - id: "operator"
+          password: ${USER_PASS_OPERATOR}
+        - id: "planner"
+          password: ${USER_PASS_PLANNER}
+  slaveAgentPort: ${JENKINS_SLAVE_AGENT_PORT}
+credentials:
+  system:
+    domainCredentials:
+    - credentials:
+      - usernamePassword:
+          id: "default-github"
+          password: ${GITHUB_TOKEN}
+          scope: GLOBAL
+          username: ${GITHUB_USER}
+unclassified:
+  simple-theme-plugin:
+    elements:
+    - cssUrl:
+        url: https://cdn.rawgit.com/afonsof/jenkins-material-theme/gh-pages/dist/material-red.css
