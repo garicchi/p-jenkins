@@ -2,7 +2,7 @@
 A super portable jenkins
 
 # :question: INTRODUCTION
-`p-jenkins` is a template of jenkins for make ease maintenance
+`p-jenkins` is a template of jenkins for make maintenance ease
 
 you would say goodbye to fragile jenkins with using this template
 
