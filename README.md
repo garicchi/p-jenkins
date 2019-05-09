@@ -84,7 +84,7 @@ run `update-config` job on jenkins
 push `Reload existing configuration` button in `Settings > Manage Jenkins > Configuration as code`
 
 ## UPDATE PLUGIN
-edit `./jenkins/config/plugins.txt
+edit `./jenkins/config/plugins.txt`
 
 git commit & git push
 
