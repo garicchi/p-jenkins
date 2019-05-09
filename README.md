@@ -9,7 +9,7 @@ you would say goodbye to fragile jenkins with using this template
 # :white_check_mark: FEATURE
 - [x] make portable jenkins with docker
 - [x] backup and restore `jenkins-home` to AWS s3
-- [x] full manage jobs you created from github
+- [x] full manage jobs you created from github with Declarative Pipeline
 - [x] full manage configuration from github with Jenkins CasC
 - [x] full manage plugin from github
 - [x] all config can apply by running job after only edit code on github
