@@ -9,3 +9,4 @@ ssh:2.6.1
 ssh-agent:1.17
 git:3.9.3
 role-strategy:2.7.0
+blueocean:1.16
