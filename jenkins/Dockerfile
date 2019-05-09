@@ -37,8 +37,6 @@ RUN echo "[default]" >> /root/.aws/credentials
 RUN echo "aws_access_key_id = $AWS_ACCESS_KEY_ID" >> /root/.aws/credentials
 RUN echo "aws_secret_access_key = $AWS_SECRET_ACCESS_KEY" >> /root/.aws/credentials
 
-ENV SCRIPT_BRANCH "*/master"
-
 ###
 ### WHAT: 最初のジョブ反映のためにupdate-configジョブだけつくります
 ###       実際に作るのはentrypoint.shの中なのでここではテンプレートのコピーだけします

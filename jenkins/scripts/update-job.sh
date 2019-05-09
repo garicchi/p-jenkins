@@ -41,7 +41,7 @@ __EOS__
 
 
     java -jar /jenkins-cli.jar \
-         -s JENKINS_EP \
+         -s $JENKINS_EP \
          -auth $USER_NAME_ADMIN:$USER_PASS_ADMIN \
          create-job \
          $JOB_NAME < /tmp/job.xml
@@ -51,7 +51,7 @@ __EOS__
 function delete-job {
     JOB_NAME="$1"
     java -jar /jenkins-cli.jar \
-     -s JENKINS_EP \
+     -s $JENKINS_EP \
      -auth $USER_NAME_ADMIN:$USER_PASS_ADMIN \
      delete-job \
      $JOB_NAME
