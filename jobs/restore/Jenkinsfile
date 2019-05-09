@@ -1,8 +1,8 @@
 pipeline {
     agent any
     parameters {
-        string(name: "BACKUP_FILE_NAME", defaultValue: "", description: "")
-        booleanParam(name: "CHECKOUT_ONLY", defaultValue: true, description: "")
+        string(name: "BACKUP_FILE_NAME", defaultValue: "", description: "s3上のバックアップファイル名")
+        booleanParam(name: "CHECKOUT_ONLY", defaultValue: true, description: "Jenkinsfileのパラメータ反映用です。trueにするとJenkinsfileのfetchだけを行い、ジョブは中断します")
     }
     
     options {
@@ -26,7 +26,7 @@ pipeline {
             }
         }
 
-        stage("Backup") {
+        stage("Restore") {
             steps {
                 sh './jenkins/scripts/restore.sh $BACKUP_FILE_NAME'
             }

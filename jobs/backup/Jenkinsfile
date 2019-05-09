@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters {
-        booleanParam(name: "CHECKOUT_ONLY", defaultValue: true, description: "")
+        booleanParam(name: "CHECKOUT_ONLY", defaultValue: true, description: "Jenkinsfileのパラメータ反映用です。trueにするとJenkinsfileのfetchだけを行い、ジョブは中断します")
     }
     
     options {
